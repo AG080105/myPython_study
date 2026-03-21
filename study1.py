@@ -747,3 +747,9 @@ match operand:
         sys.exit()#Cute na kapalit ng if-elif-else statement whahhshas
 '''
 ''''''
+reversing_string = "Ashley"
+rvrsed_string = reversing_string[::-1]#Itong [::-1] ay yung taga-reverse
+print(rvrsed_string) #Dito is yung pag rereverse ng string whashashhas
+reversing_intergers = 123456
+rvrsed_integers = int(str(reversing_intergers)[::-1]) #Ginawang string yung integer para mareverse
+print(rvrsed_integers) #Dito naman is yung pagreverse ng integers
