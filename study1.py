@@ -1,3 +1,4 @@
+import requests
 import random
 import sys
 #Studying Python basics
@@ -747,9 +748,23 @@ match operand:
         sys.exit()#Cute na kapalit ng if-elif-else statement whahhshas
 '''
 ''''''
+'''
 reversing_string = "Ashley"
 rvrsed_string = reversing_string[::-1]#Itong [::-1] ay yung taga-reverse
 print(rvrsed_string) #Dito is yung pag rereverse ng string whashashhas
 reversing_intergers = 123456
 rvrsed_integers = int(str(reversing_intergers)[::-1]) #Ginawang string yung integer para mareverse
 print(rvrsed_integers) #Dito naman is yung pagreverse ng integers
+'''
+
+url = input('Enter a URL: ')
+
+try:
+    response = requests.get(url)
+    response.raise_for_status()
+    if response.status_code == 200:
+        print("The URL is valid and accessible.")
+    else:
+        print(f"Other response status code: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}  ")
