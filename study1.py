@@ -757,14 +757,14 @@ rvrsed_integers = int(str(reversing_intergers)[::-1]) #Ginawang string yung inte
 print(rvrsed_integers) #Dito naman is yung pagreverse ng integers
 '''
 
-url = input('Enter a URL: ')
+url = input('Enter a URL: ') #Ito ay input about sa URl lng
 
-try:
-    response = requests.get(url)
-    response.raise_for_status()
+try: #Gamit itong try-except statement ay hinahandle itong URL na nilagay mo
+    response = requests.get(url) #So dito is yung pag rerequest sa URL na nilagay mo
+    response.raise_for_status() #Dito naman is yung kung valid ba yung URL na nilagay mo
     if response.status_code == 200:
-        print("The URL is valid and accessible.")
+        print("The URL is valid and accessible.") #Dito sa if statement is yung kung 200 or ok yung response ng site na nilagay mo
     else:
-        print(f"Other response status code: {response.status_code}")
+        print(f"Other response status code: {response.status_code}") #Dito naman is yung kung may iba kang reposne code
 except requests.exceptions.RequestException as e:
-    print(f"An error occurred: {e}  ")
+    print(f"An error occurred: {e}  ") #Dito is yung kung mali yung nilagay mo na URl at mag lalabas sya ng predicted errors
