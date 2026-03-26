@@ -1,6 +1,7 @@
 import requests
 import random
 import sys
+import string
 #Studying Python basics
 #name = input("input example: ")
 """
@@ -756,7 +757,7 @@ reversing_intergers = 123456
 rvrsed_integers = int(str(reversing_intergers)[::-1]) #Ginawang string yung integer para mareverse
 print(rvrsed_integers) #Dito naman is yung pagreverse ng integers
 '''
-
+'''
 url = input('Enter a URL: ') #Ito ay input about sa URl lng
 
 try: #Gamit itong try-except statement ay hinahandle itong URL na nilagay mo
@@ -768,3 +769,23 @@ try: #Gamit itong try-except statement ay hinahandle itong URL na nilagay mo
         print(f"Other response status code: {response.status_code}") #Dito naman is yung kung may iba kang reposne code
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}  ") #Dito is yung kung mali yung nilagay mo na URl at mag lalabas sya ng predicted errors
+'''
+
+#Dito is gagawa us ng URL shortener 
+url_shi = {}#Dito is gagamit tayo ng library para sa pag shoshort
+
+def generate_short_code(length=6): #So dito is yung mga igegenerate na random code ay limited lng 6 digits
+    characters = string.ascii_letters + string.digits #Dito is yung characters na gagamtin is both string & num
+    return ''.join(random.choice(characters) for _ in range(length)) #Ang ginagagwa dito is yung pag randomize ng num & string sa loob ng length=6
+def shorten_url(long_url): #Dito is yung pag aayos ng short code base sa long_url
+    short_code = generate_short_code() #Ito yun specifically
+    url_shi[short_code] = long_url #Ito ay yung format sa pag sesave ng URL sa dictionary, dict_name[key] = value
+    return short_code
+def retrieve_url(short_code): #Dito nmn is yung kuha ng short_code sa dict with get() method
+    return url_shi.get(short_code, "Short code not found.")
+
+if __name__ == "__main__": #OK, itong part na ito is wala pa ako idea about dito, pagaaralan ko plng dis
+    long_url = input("Input the long URL here: ") #Wala ako idea sa Ifstatement, itong mga ito is output lng ito
+    short_code = shorten_url(long_url)
+    print(f"The shortened URL is: {short_code}")
+
